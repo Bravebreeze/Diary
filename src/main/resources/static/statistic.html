@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Статистика</title>
+    <link rel="shortcut icon" href="plus.ico" />
+    <link rel="stylesheet" type="text/css" href="statistic_style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header id="header">
+        <div class="header_div">
+            <div class="header_div2">
+                <h6 class="h2"><img class="user" src="иконка.ico"><a href="index.html" class="link"> Статистика упражнений</a></h6>
+            </div>
+        </div>
+        <div class="header_line">
+            <a href="index.html" class="link1">Функционал</a>
+            <a href="index.html" class="link1">Новости и объявления</a>
+            <a href="#information" class="link2">Контакты</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="main">
+            <div class="statistics">
+                <div class="main_img_statistic"><img class="img_statistic" src="статистика.ico"></div>
+                <div class="about_statistic"><h4>Статистика выполненных упражнений</h4>
+                    <div class="label">Виды тренировок</div>
+        <h6>Выберите тренировки,выполненные сегодня</h6>
+        <label><button onclick="addData(0)">Спина</button></label>
+        <label><button onclick="addData(1)">Корпус</button></label><br>
+        <label><button onclick="addData(2)">Руки</button></label>
+        <label><button onclick="addData(3)">Кардио</button></label><br>
+        <label><button onclick="addData(4)">Плечи</button></label>
+        <label><button onclick="addData(5)">Ноги</button></label><br>
+        <button onclick="resetData()">Сброс</button>
+    </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <canvas id="myChart" width="0,2%" height="0,2%"></canvas>
+            <script>
+                       var ctx = document.getElementById('myChart').getContext('2d');
+    var count = 1;
+
+    var initialData = {
+      labels: ['Спина', 'Корпус', 'Руки', 'Кардио', 'Плечи', 'Ноги'],
+      datasets: [{
+        label: 'Тренировки за месяц',
+        data: [0,0,0,0,0,0], 
+        backgroundColor: ['blue', 'red', 'green', 'purple', 'orange', 'yellow'],
+        borderWidth: 1
+      }]
+    };
+
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: initialData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    function addData(index) {
+      myChart.data.datasets[0].data[index] += count; 
+      myChart.update();
+    }
+    function resetData() {
+      myChart.data.datasets[0].data = [0, 0, 0, 0, 0, 0]; 
+      myChart.update();
+    }
+              </script>
+        </div>
+    </main>
+
+    <footer id="footer"><a name="information"></a>
+        <div class="main_end"></div>
+        <div class="end">
+            <div class="information">
+                <ul>Контактная информация
+                    <li>+7 (000) 000-00-00</li>
+                    <li>pochta@mail.ru</li>
+                </ul>
+                <ul>Адрес
+                    <li>г. Ростов-на-Дону, ул. Большая Садовая 1</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

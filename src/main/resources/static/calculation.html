@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Расчёт ИМТ</title>
+    <link rel="shortcut icon" href="иконка.ico" />
+    <link rel="stylesheet" type="text/css" href="calculation_style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header id="header">
+        <div class="header_div">
+            <div class="header_div2">
+                <h6 class="h2"><img class="user" src="иконка.ico"><a href="index.html" class="link"> Дневник тренировок</a></h6>
+            </div>
+        </div>
+        <div class="header_line">
+            <a href="index.html" class="link1">Функционал</a>
+            <a href="index.html" class="link1">Новости и объявления</a>
+            <a href="#information" class="link2">Контакты</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="main">
+            <div class="calculations">
+                <div class="main_img_calculation"><img class="img_calculation" src="калькулятор.ico"></div>
+                <div class="about_functional"><h4>Расчёт ИМТ(Индекс массы тела)</h4>
+                    <form oninput="out.value=(parseFloat(mass.value)/(parseFloat(height.value)*parseFloat(height.value)))">
+                    <p>Введите массу (в кг) </p>
+                    <input type="number" name="mass" size="6" value= "">
+                    <p> Введите рост(в м)</p>
+                    <input type="number" name="height" size="6" value= "">
+                    <p>Вывод ИМТ</p>
+                    <output name="out" for="mass height">0</output></form>
+                    <p>Меньше 18,5 - Недостаток веса</p>
+                    <p>От 18,6 до 24,99 - Норма веса</p>
+                    <p>От 25 - Избыток веса</p>
+                </form>
+            </div>
+            
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="footer"><a name="information"></a>
+        <div class="main_end"></div>
+        <div class="end">
+            <div class="information">
+                <ul>Контактная информация
+                    <li>+7 (000) 000-00-00</li>
+                    <li>pochta@mail.ru</li>
+                </ul>
+                <ul>Адрес
+                    <li>г. Ростов-на-Дону, ул.Большая Садовая 1</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
